@@ -1,34 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int min(int x, int y, int z)
-{
-    return min(min(x, y), z);
-}
+int min(int x, int y, int z) { return min(min(x, y), z); }
 
-int editDist(string str1, string str2, int m, int n)
+int editDistDP(string str1, string str2, int m, int n)
 {
 
-    if (m == 0)
-        return n;
+    int dp[m + 1][n + 1];
 
-    if (n == 0)
-        return m;
+   for (int i = 0; i <= m; i++) {
+        for (int j = 0; j <= n; j++) {
 
-    if (str1[m - 1] == str2[n - 1])
-        return editDist(str1, str2, m - 1, n - 1);
+            if (i == 0)
+                dp[i][j] = j;
 
 
-    return 1+ min(editDist(str1, str2, m, n - 1), editDist(str1, str2, m - 1, n),editDist(str1, str2, m - 1,n - 1));
+            else if (j == 0)
+                dp[i][j] = i;
+
+
+            else if (str1[i - 1] == str2[j - 1])
+                dp[i][j] = dp[i - 1][j - 1];
+
+
+            else
+                dp[i][j] = 1+ min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+        }
+    }
+
+    return dp[m][n];
 }
 
 
 int main()
 {
-   cout<<"Enter two strings";
-   string str1,str2;
-   cin>>str1>>str2;
-   cout << editDist(str1, str2, str1.length(),str2.length());
-
+    cout<<"Enter two strings";
+    string str1,str2;
+    cin>>str1>>str2;
+    cout << editDistDP(str1, str2, str1.length(), str2.length());
     return 0;
 }
+
