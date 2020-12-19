@@ -25,6 +25,6 @@ int main()
     int arr[p];
     for(int i=0;i<p;i++)
         cin>>arr[i];
-    cout<<"Length of lis is "<<lis(arr,n);
+    cout<<"Length of lis is "<<lis(arr,p);
     return 0;
 }
