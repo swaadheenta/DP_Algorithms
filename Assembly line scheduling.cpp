@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int carAssembly(int a[][4],
-                int t[][4],
-                int *e, int *x)
+int carAssembly(int a[][4], int t[][4], int *e, int *x)
 {
     int first, second, i;
 
