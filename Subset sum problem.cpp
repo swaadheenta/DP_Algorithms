@@ -34,10 +34,8 @@ int main()
     for(int i=0;i<p;i++)
         cin>>arr[i];
     int sum = 9;
-    int n = sizeof(arr) / sizeof(arr[0]);
-    if (isSubsetSum(arr, n, sum))
+    if (isSubsetSum(arr, p, sum))
         cout<<"Found a subset with given sum";
-
     else
         cout<<"No subset with given sum";
     return 0;
