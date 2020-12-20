@@ -45,7 +45,7 @@ int main()
     cout<<"Enter the weight of values";
     for(int i=0;i<p;i++)
         cin>>wt[i];
-    int n = sizeof(val) / sizeof(val[0]);
-    cout<<knapSack(W, wt, val, n);
+    cout<<knapSack(W, wt, val, p);
     return 0;
 }
+
